@@ -17,8 +17,8 @@ export class MessageService {
     const message = {
       id: Date.now().toString(),
       content,
-      sender: { id: senderId, username: `User${senderId}`, email: `user${senderId}@example.com` }, // Dummy sender
-      conversation: { id: conversationId, title: `Conversation${conversationId}`, participants: [] }, // Dummy conversation
+      sender: { id: senderId, username: `User${senderId}`, email: `user${senderId}@example.com` },
+      conversation: { id: conversationId, title: `Conversation${conversationId}`, participants: [] },
       timestamp: new Date(),
     };
     await this.messageQueue.add('send-message', message);

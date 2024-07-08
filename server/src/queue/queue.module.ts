@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bull';
 import { QueueService } from './queue.service';
 import { MessageProcessor } from '../processors/message.processor';
+import { MessageService } from '../services/message.service';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { MessageProcessor } from '../processors/message.processor';
       name: 'message-queue',
     }),
   ],
-  providers: [QueueService, MessageProcessor],
-  exports: [QueueService],
+  providers: [QueueService, MessageProcessor, MessageService],
+  exports: [QueueService, MessageService],
 })
 export class QueueModule {}

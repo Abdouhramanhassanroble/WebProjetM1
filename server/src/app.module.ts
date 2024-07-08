@@ -20,14 +20,11 @@ import { MessageProcessor } from './processors/message.processor';
         port: 6379,
       },
     }),
-    BullModule.registerQueue({
-      name: 'messageQueue',
-    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
-    QueueModule,
+    QueueModule, 
   ],
   providers: [
     UserResolver,
